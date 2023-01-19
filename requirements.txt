@@ -58,14 +58,9 @@ six==1.16.0
 soupsieve==2.3.2.post1
 stack-data==0.6.2
 tokenizers==0.13.2
-# torch==1.13.1+cpu
-# torchaudio==0.13.1+cpu
-# torchvision==0.14.1+cpu
 tornado==6.2
 tqdm==4.64.1
 traitlets==5.8.1
-transformers==4.23.1
-tweepy==4.12.1
 typing_extensions==4.4.0
 urllib3==1.26.13
 wcwidth==0.2.6
