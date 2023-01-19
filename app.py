@@ -43,4 +43,4 @@ def home():
     return render_template('index.html', img_path=img_path)
 
 if __name__ == '__main__':
-    app.run(port="5004")
+    app.run()
