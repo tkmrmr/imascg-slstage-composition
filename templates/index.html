@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>テスト</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <form action="/" enctype="multipart/form-data">
+    <div class="wrap">
+      <div class="input input1">
+        <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');">
+        <img id="preview1"  height="300" alt="">
+      </div>
+      <div class="input input2">
+        <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');">
+        <img id="preview2" height="300" alt="">
+      </div>
+    </div>
+    <div>
+        <button type="submit" formmethod="post">合成</button></p>
+    </div>
+      {% if img_path %}
+      <div>
+          <p>合成結果</p>
+        <img src="{{ img_path }}" height="300">
+      </div>
+      {% endif %}
+    </form>
+    <script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>
+</body>
+</html>
