@@ -8,17 +8,22 @@
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
+  <h1>デレステセリフ付画像合成</h1>
     <form action="/" enctype="multipart/form-data">
     <div class="wrap">
       <div class="input input1">
+        <img id="preview1"  height="300" alt=""><br>
         <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');">
-        <img id="preview1"  height="300" alt="">
+        <!-- <p>プレビュー</p>  -->
+        <!--ここ消すと選択ボタンが下になる-->
       </div>
       <div class="input input2">
+        <img id="preview2" height="300" alt=""><br>
         <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');">
-        <img id="preview2" height="300" alt="">
+        <!-- <p>プレビュー</p> -->
       </div>
     </div>
+    <br>
     <div>
         <button type="submit" formmethod="post">合成</button></p>
     </div>

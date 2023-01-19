@@ -10,7 +10,6 @@ def home():
     if request.method == 'GET':
         img_path=None
     elif request.method == 'POST':
-
         stream1 = request.files['img1'].stream
         stream2 = request.files['img2'].stream
         img_array1 = np.asarray(bytearray(stream1.read()), dtype=np.uint8)
