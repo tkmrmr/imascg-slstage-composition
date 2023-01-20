@@ -8,13 +8,14 @@ app = Flask(__name__)
 def home():
     img_dir = "static/img/"
     if request.method == 'GET':
-        img_path=None
+        img_path = None
     elif request.method == 'POST':
         stream1 = request.files['img1'].stream
         stream2 = request.files['img2'].stream
         img_array1 = np.asarray(bytearray(stream1.read()), dtype=np.uint8)
         img_array2 = np.asarray(bytearray(stream2.read()), dtype=np.uint8)
         img1 = cv2.imdecode(img_array1, 1)
+        cv2.imwrite(img_dir+"img1.png", img1)
         img2 = cv2.imdecode(img_array2, 1)
         # 画像処理
         img_line = img1[538:808, 1770:2433]

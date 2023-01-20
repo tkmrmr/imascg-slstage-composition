@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
+<div id="wrap">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>テスト</title>
+    <title>デレステセリフ付画像合成</title>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <h1>デレステセリフ付画像合成</h1>
+    <h1>デレステセリフ付画像合成</h1>
     <form action="/" enctype="multipart/form-data">
-    <div class="wrap">
-      <div class="input input1">
-        <img id="preview1"  width="300" alt=""><br>
-        <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');">
-        <!-- <p>プレビュー</p>  -->
-        <!--ここ消すと選択ボタンが下になる-->
-      </div>
-      <div class="input input2">
-        <img id="preview2" width="300" alt=""><br>
-        <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');">
-        <!-- <p>プレビュー</p> -->
-      </div>
+    <div class="flex">
+        <div class="box">
+            <p>ホーム画像</p>
+            <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');"><br>
+            <img src="static/img/initial-home-img.png" style="opacity:0.3;width:300px;">
+            <img id="preview1" width="500" alt=""><br>
+        </div>
+        <div class="box">
+            <p>アイドル画像</p>
+            <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');"><br>
+            <img src="static/img/initial-idol-img.png" style="opacity:0.3;width:300px;">
+            <img id="preview2" width="500" alt=""><br>
+        </div>
     </div>
     <br>
     <div>
         <button type="submit" formmethod="post">合成</button></p>
-    </div>
-      {% if img_path %}
-      <div>
-          <p>合成結果</p>
+    </div >
+    <div class="box">
+        <p>合成結果</p>
+        <img src="static/img/initial-out-img.png" style="opacity:0.3;width:300px;"><br>
+        {% if img_path %}
         <img src="{{ img_path }}" width="300">
-      </div>
-      {% endif %}
+        {% endif %}
     </form>
+    </div>
     <script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>
 </body>
+</div>
 </html>

@@ -1,5 +1,17 @@
-.wrap{
+@media screen and (min-width:768px) {
+  .flex{
     display:flex;
-    /*justify-content:center;
-    align-items:center;*/
+    justify-content:center;
+    align-items:center;
   }
+}
+
+
+body{
+  width:100%; /*ページ全体の幅は100%と指定する*/
+  text-align:center; /*ページ全体を中央揃えにする*/
+}
+head{
+  width:100%; /*ページ全体の幅は100%と指定する*/
+  text-align:center; /*ページ全体を中央揃えにする*/
+}
