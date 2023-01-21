@@ -11,45 +11,54 @@
 <body>
     <header class="header">
         <div class="header__inner">
-          <h4 class="header__title header-title">
+          <h4 class="header__title">
               デレステセリフ付画像合成
           </h4>
         </div>
     </header>
-    <form action="/" enctype="multipart/form-data">
+    <form action="/" name="submitForm" enctype="multipart/form-data">
     <div class="flex">
         <div class="box30">
             <div class="box-title">ホーム画像</div>
-            <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');hiddenElem('initimg1');">
-            <p class="resizeimg">
-              <img src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg1" style="opacity:0.3;">
-              <img id="preview1" alt=""><br>
-            </p>
+            <label>
+              <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');hiddenElem('initimg1');buttonOn();">ファイルを選択
+            </label>
+            <div class="resizeimg">
+              <img src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg1" style="opacity:0.3;" alt="">
+              <img id="preview1" alt="">
+            </div>
         </div>
         <div class="box30">
             <div class="box-title">アイドル画像</div>
-            <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');hiddenElem('initimg2');"><br>
-            <p class="resizeimg">
-              <img src="{{ url_for('static', filename='img/initial-idol-img.png') }}" id="initimg2" style="opacity: 0.3">
+            <label>
+              <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');hiddenElem('initimg2');buttonOn();">ファイルを選択
+            </label>
+            <div class="resizeimg">
+              <img src="{{ url_for('static', filename='img/initial-idol-img.png') }}" id="initimg2" style="opacity: 0.3" alt="">
               <img id="preview2" alt="">
-            </p>
+            </div>
         </div>
     </div>
     <div>
-        <button type="submit" formmethod="post">合成</button></p>
+        <button type="submit"  name="compose" id="submitbutton" formmethod="post" style="opacity:0.4" disabled>合成</button>
     </div >
     <div class="box30">
+      <div class="boxbottom">
         <div class="box-title">合成結果</div>
-            <p class="resizeimg">
-            {% if img_path %}
-            <img src="{{ img_path }}">
-            {% else %}
-            <img src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg3" style="opacity: 0.3">
-            {% endif %}
-        </p>
-    </form>
-    </div>
-    <script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>
+            <div class="resizeimg">
+              {% if img_path %}
+              <img class="out" src="{{ img_path }}">
+              <label>
+                <a href="{{ img_path }}" download=""img.png>ダウンロード</a>
+              </label>
+              {% else %}
+              <img class="out" src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg3" style="opacity: 0.3">
+              {% endif %}
+          </div>
+        </div>
+  </div>
+  </form>
+  <script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>
 </body>
 </div>
 </html>

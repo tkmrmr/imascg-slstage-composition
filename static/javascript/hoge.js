@@ -1,3 +1,5 @@
+var count = 0;
+
 function previewFile(obj,targetID){
     var fileData = new FileReader();
     fileData.onload = (function() {
@@ -14,3 +16,13 @@ function hiddenElem(elem) {
   var id = document.getElementById(elem);
   id.style.display = "none";
 }
+
+function buttonOn() {
+    count += 1;
+    if (count == 2) {
+        let formElements = document.forms.submitForm;
+        formElements.compose.disabled = false;
+        formElements.compose.style.opacity = 1.0;
+    }
+}
+

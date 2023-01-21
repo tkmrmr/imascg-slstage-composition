@@ -8,8 +8,6 @@ app = Flask(__name__, static_folder="./static/")
 def home():
     img_dir = "static/img/"
     if request.method == 'GET':
-        img_path1 = None
-        img_path2 = None
         img_path = None
     elif request.method == 'POST':
         stream1 = request.files['img1'].stream
@@ -29,7 +27,7 @@ def home():
 
         img_hsv[:,:,(1)] = img_hsv[:,:,(1)]*1.2
 
-        gamma     = 1.12                            # γ値を指定
+        gamma     = 1.1                            # γ値を指定
         img2gamma = np.zeros((256,1),dtype=np.uint8)
         for i in range(256):
             img2gamma[i][0] = 255 * (float(i)/255) ** (1.0 /gamma)
@@ -43,4 +41,4 @@ def home():
     return render_template('index.html', img_path=img_path)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(port="5002",debug=True)
