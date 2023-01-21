@@ -47,16 +47,21 @@
               {% if img_path %}
               <script>
                 const bottombox = document.getElementById('bottombox');
+                const dllabel = document.getElementById('dllabel');
+                const dllink = document.getElementById('dllink');
                 window.addEventListener("load", function() {
                     bottombox.scrollIntoView(true);
                 }, false);
               </script>
               <img class="out" src="{{ img_path }}">
               <label>
-                <a href="{{ img_path }}" download=""img.png>ダウンロード</a>
+                <a href="{{ img_path }}" download=""img.png>画像を保存</a>
               </label>
               {% else %}
-              <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3" style="opacity: 0.3">
+              <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3">
+              <label class="download">
+                <a id="dllink" href="{{ img_path }}" download=""img.png>画像を保存</a>
+              </label>
               {% endif %}
           </div>
 </div>

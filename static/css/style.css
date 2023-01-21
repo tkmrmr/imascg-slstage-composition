@@ -104,6 +104,16 @@ a {
   text-decoration: none;
 }
 
+.download {
+  pointer-events: none;
+
+}
+
+.download a {
+  cursor: default;
+  opacity: 0.4;
+}
+
 .out {
   margin-top:1em;
 }
