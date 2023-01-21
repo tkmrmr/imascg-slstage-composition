@@ -24,7 +24,6 @@
             <p class="resizeimg">
               <img src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg1" style="opacity:0.3;">
               <img id="preview1" alt=""><br>
-              {% endif %}
             </p>
         </div>
         <div class="box30">
@@ -33,7 +32,6 @@
             <p class="resizeimg">
               <img src="{{ url_for('static', filename='img/initial-idol-img.png') }}" id="initimg2" style="opacity: 0.3">
               <img id="preview2" alt="">
-              {% endif %}
             </p>
         </div>
     </div>
@@ -46,7 +44,7 @@
             {% if img_path %}
             <img src="{{ img_path }}">
             {% else %}
-            <img src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3" style="opacity: 0.3">
+            <img src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg3" style="opacity: 0.3">
             {% endif %}
         </p>
     </form>
