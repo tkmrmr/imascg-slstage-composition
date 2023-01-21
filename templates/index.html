@@ -3,7 +3,6 @@
 <div id="wrap">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>デレステセリフ付画像合成</title>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
@@ -42,11 +41,16 @@
     <div>
         <button type="submit"  name="compose" id="submitbutton" formmethod="post" style="opacity:0.4" disabled>合成</button>
     </div >
-    <div class="box30">
-      <div class="boxbottom">
+    <div id="bottombox" class="box30">
         <div class="box-title">合成結果</div>
             <div class="resizeimg">
               {% if img_path %}
+              <script>
+                const bottombox = document.getElementById('bottombox');
+                window.addEventListener("load", function() {
+                    bottombox.scrollIntoView(true);
+                }, false);
+              </script>
               <img class="out" src="{{ img_path }}">
               <label>
                 <a href="{{ img_path }}" download=""img.png>ダウンロード</a>
@@ -55,10 +59,9 @@
               <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3" style="opacity: 0.3">
               {% endif %}
           </div>
-        </div>
-  </div>
-  </form>
-  <script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>
+</div>
+</form>
+<script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>
 </body>
 </div>
 </html>

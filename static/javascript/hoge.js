@@ -1,19 +1,19 @@
 var count = 0;
 
-function previewFile(obj,targetID){
+function previewFile(obj,targetId){
     var fileData = new FileReader();
     fileData.onload = (function() {
       //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
       //プレビュー表示している
-      document.getElementById(targetID).src = fileData.result;
+      document.getElementById(targetId).src = fileData.result;
     });
     fileData.readAsDataURL(obj.files[0]);
     const formData = new FormData();
     formData.append("avatar", fileData.result);
   }
 
-function hiddenElem(targetID) {
-  document.getElementById(targetID).style.display = "none";
+function hiddenElem(targetId) {
+  document.getElementById(targetId).style.display = "none";
 }
 
 function buttonOn() {
@@ -25,6 +25,6 @@ function buttonOn() {
     }
 }
 
-function previewDisplay(targetID) {
-    document.getElementById(targetID).style.display = "inline";
+function previewDisplay(targetId) {
+    document.getElementById(targetId).style.display = "inline";
 }
