@@ -6,7 +6,11 @@ app = Flask(__name__, static_folder="./static/")
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    img_dir = "img/"
+    img_dir = "static/img/"
+    gamma     = 1.18                            # γ値を指定
+    img2gamma = np.zeros((256,1),dtype=np.uint8)
+    for i in range(256):
+        img2gamma[i][0] = 255 * (float(i)/255) ** (1.0 /gamma)
     if request.method == 'GET':
         img_path1 = None
         img_path2 = None
@@ -17,9 +21,11 @@ def home():
         img_array1 = np.asarray(bytearray(stream1.read()), dtype=np.uint8)
         img_array2 = np.asarray(bytearray(stream2.read()), dtype=np.uint8)
         img1 = cv2.imdecode(img_array1, 1)
+        img1 = cv2.LUT(img1, img2gamma)
         img_path1 = img_dir + "img1.png"
         cv2.imwrite(img_path1, img1)
         img2 = cv2.imdecode(img_array2, 1)
+        img2 = cv2.LUT(img2, img2gamma)
         img_path2 = img_dir + "img2.png"
         cv2.imwrite(img_path2, img2)
         # 画像処理
@@ -34,12 +40,6 @@ def home():
         img_hsv[:,:,(1)] = img_hsv[:,:,(1)]*1.25
 
         img_bgr = cv2.cvtColor(img_hsv,cv2.COLOR_HSV2BGR)
-
-        gamma     = 1.18                            # γ値を指定
-        img2gamma = np.zeros((256,1),dtype=np.uint8)
-        for i in range(256):
-            img2gamma[i][0] = 255 * (float(i)/255) ** (1.0 /gamma)
-
         img_bgr = cv2.LUT(img_bgr, img2gamma)
 
         img_path = img_dir + "img.png"
