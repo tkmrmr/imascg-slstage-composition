@@ -6,4 +6,11 @@ function previewFile(obj,targetID){
       document.getElementById(targetID).src = fileData.result;
     });
     fileData.readAsDataURL(obj.files[0]);
+    const formData = new FormData();
+    formData.append("avatar", fileData.result);
   }
+
+function hiddenElem(elem) {
+  var id = document.getElementById(elem);
+  id.style.display = "none";
+}

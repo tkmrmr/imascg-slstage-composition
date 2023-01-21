@@ -9,32 +9,52 @@
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>デレステセリフ付画像合成</h1>
+    <header class="header">
+        <div class="header__inner">
+          <h4 class="header__title header-title">
+              デレステセリフ付画像合成
+          </h4>
+        </div>
+    </header>
     <form action="/" enctype="multipart/form-data">
     <div class="flex">
-        <div class="box">
-            <p>ホーム画像</p>
-            <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');"><br>
-            <img src="static/img/initial-home-img.png" style="opacity:0.3;width:300px;">
-            <img id="preview1" width="500" alt=""><br>
+        <div class="box30">
+            <div class="box-title">ホーム画像</div>
+            <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');hiddenElem('initimg1');">
+            <p class="resizeimg">
+              {% if img_path %}
+              <img src="{{ img_path1 }}">
+              {% else %}
+              <img src="static/img/initial-home-img.png" id="initimg1" style="opacity:0.3;">
+              <img id="preview1" alt=""><br>
+              {% endif %}
+            </p>
         </div>
-        <div class="box">
-            <p>アイドル画像</p>
-            <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');"><br>
-            <img src="static/img/initial-idol-img.png" style="opacity:0.3;width:300px;">
-            <img id="preview2" width="500" alt=""><br>
+        <div class="box30">
+            <div class="box-title">アイドル画像</div>
+            <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');hiddenElem('initimg2');"><br>
+            <p class="resizeimg">
+              {% if img_path %}
+              <img src="{{ img_path2 }}">
+              {% else %}
+              <img src="static/img/initial-idol-img.png" id="initimg2" style="opacity: 0.3">
+              <img id="preview2" alt="">
+              {% endif %}
+            </p>
         </div>
     </div>
-    <br>
     <div>
         <button type="submit" formmethod="post">合成</button></p>
     </div >
-    <div class="box">
-        <p>合成結果</p>
-        <img src="static/img/initial-out-img.png" style="opacity:0.3;width:300px;"><br>
-        {% if img_path %}
-        <img src="{{ img_path }}" width="300">
-        {% endif %}
+    <div class="box30">
+        <div class="box-title">合成結果</div>
+            <p class="resizeimg">
+            {% if img_path %}
+            <img src="{{ img_path }}">
+            {% else %}
+            <img src="static/img/initial-out-img.png" id="initimg3" style="opacity: 0.3">
+            {% endif %}
+        </p>
     </form>
     </div>
     <script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>

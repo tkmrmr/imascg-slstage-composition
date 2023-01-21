@@ -6,12 +6,76 @@
   }
 }
 
+#wrap{
+  width:100%; /*ページ全体の幅は100%と指定する*/
+  text-align:center; /*ページ全体を中央揃えにする*/
+  overflow: hidden;
+
+}
 
 body{
-  width:100%; /*ページ全体の幅は100%と指定する*/
-  text-align:center; /*ページ全体を中央揃えにする*/
+  margin:0;
+  padding:0;
 }
-head{
-  width:100%; /*ページ全体の幅は100%と指定する*/
-  text-align:center; /*ページ全体を中央揃えにする*/
+
+.resizeimg img {
+  width: 90%;
 }
+
+.box30 {
+  width: 100%;
+  margin: 2em 2em;
+  background: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+.box30 .box-title {
+  font-size: 1.2em;
+  background: #ceea80;
+  padding: 4px;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+/* ヘッダー */
+
+
+.header {
+  background-color: #ceea80;
+  width: 100%;
+  height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+}
+
+
+@media screen and (min-width: 960px) {
+  .header {
+    height: 80px;
+  }
+}
+
+
+.header__inner {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  height: inherit;
+  position: relative;
+}
+
+.header__title img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+h4{
+  display: flex;
+  text-align: center;
+}
+
