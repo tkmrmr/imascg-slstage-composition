@@ -12,9 +12,8 @@ function previewFile(obj,targetID){
     formData.append("avatar", fileData.result);
   }
 
-function hiddenElem(elem) {
-  var id = document.getElementById(elem);
-  id.style.display = "none";
+function hiddenElem(targetID) {
+  document.getElementById(targetID).style.display = "none";
 }
 
 function buttonOn() {
@@ -26,3 +25,6 @@ function buttonOn() {
     }
 }
 
+function previewDisplay(targetID) {
+    document.getElementById(targetID).style.display = "inline";
+}

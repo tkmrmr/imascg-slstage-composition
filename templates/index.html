@@ -21,21 +21,21 @@
         <div class="box30">
             <div class="box-title">ホーム画像</div>
             <label>
-              <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');hiddenElem('initimg1');buttonOn();">ファイルを選択
+              <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');hiddenElem('initimg1');buttonOn();previewDisplay('preview1');">ファイルを選択
             </label>
             <div class="resizeimg">
               <img src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg1" style="opacity:0.3;" alt="">
-              <img id="preview1" alt="">
+              <img id="preview1" alt="" style="display:none">
             </div>
         </div>
         <div class="box30">
             <div class="box-title">アイドル画像</div>
             <label>
-              <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');hiddenElem('initimg2');buttonOn();">ファイルを選択
+              <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');hiddenElem('initimg2');buttonOn();previewDisplay('preview2');">ファイルを選択
             </label>
             <div class="resizeimg">
               <img src="{{ url_for('static', filename='img/initial-idol-img.png') }}" id="initimg2" style="opacity: 0.3" alt="">
-              <img id="preview2" alt="">
+              <img id="preview2" alt="" style="display:none">
             </div>
         </div>
     </div>
