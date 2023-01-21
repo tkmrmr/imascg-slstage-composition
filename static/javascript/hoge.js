@@ -22,6 +22,7 @@ function buttonOn() {
         let formElements = document.forms.submitForm;
         formElements.compose.disabled = false;
         formElements.compose.style.opacity = 1.0;
+        formElements.compose.style.cursor = "pointer";
     }
 }
 
