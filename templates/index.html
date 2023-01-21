@@ -22,9 +22,6 @@
             <div class="box-title">ホーム画像</div>
             <input type="file" name="img1" accept="image/*" required onchange="previewFile(this,'preview1');hiddenElem('initimg1');">
             <p class="resizeimg">
-              {% if img_path %}
-              <img src="{{ img_path1 }}">
-              {% else %}
               <img src="{{ url_for('static', filename='img/initial-home-img.png') }}" id="initimg1" style="opacity:0.3;">
               <img id="preview1" alt=""><br>
               {% endif %}
@@ -34,9 +31,6 @@
             <div class="box-title">アイドル画像</div>
             <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');hiddenElem('initimg2');"><br>
             <p class="resizeimg">
-              {% if img_path %}
-              <img src="{{ img_path2 }}">
-              {% else %}
               <img src="{{ url_for('static', filename='img/initial-idol-img.png') }}" id="initimg2" style="opacity: 0.3">
               <img id="preview2" alt="">
               {% endif %}
