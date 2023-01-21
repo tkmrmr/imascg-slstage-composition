@@ -2,11 +2,14 @@ import cv2
 import numpy as np
 from flask import Flask, render_template, request
 
-app = Flask(__name__, static_folder="static/")
+app = Flask(__name__, static_folder="./static/")
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     img_dir = "static/img/"
+    img_path0_1 = img_dir + "initial-home-img.png"
+    img_path0_2 = img_dir + "initial-idol-img.png"
+    img_path0 = img_dir + "initial-out-img.png"
     if request.method == 'GET':
         img_path1 = None
         img_path2 = None
@@ -45,7 +48,7 @@ def home():
         img_path = img_dir + "img.png"
         cv2.imwrite(img_path, img_bgr)
 
-    return render_template('index.html', img_path1=img_path1, img_path2=img_path2, img_path=img_path)
+    return render_template('index.html', img_path0_1=img_path0_1, img_path0_2=img_path0_2, img_path0=img_path0, img_path1=img_path1, img_path2=img_path2, img_path=img_path)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
