@@ -53,12 +53,12 @@
                     bottombox.scrollIntoView(true);
                 }, false);
               </script>
-              <img class="out" src="{{ img_path }}">
+              <img class="out" src="{{ img_path }}" alt="">
               <label>
                 <a href="{{ img_path }}" download=""img.png>画像を保存</a>
               </label>
               {% else %}
-              <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3">
+              <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3" style="opacity: 0.3"  alt="">
               <label class="download">
                 <a id="dllink" href="{{ img_path }}" download=""img.png>画像を保存</a>
               </label>
