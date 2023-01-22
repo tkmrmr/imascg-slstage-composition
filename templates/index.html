@@ -31,6 +31,7 @@
     </div>
     <form action="/" name="submitForm" enctype="multipart/form-data">
     <div class="flex">
+      <div class="leftbox">
         <div class="box30">
             <div class="box-title">ホーム画像</div>
             <label>
@@ -41,7 +42,9 @@
               <img id="preview1" alt="" style="display:none">
             </div>
         </div>
-        <div class="box30">
+      </div>
+      <div class="rightbox">
+        <div class="box30" id="rightbox">
             <div class="box-title">アイドル画像</div>
             <label>
               <input type="file" name="img2" accept="image/*" required onchange="previewFile(this,'preview2');hiddenElem('initimg2');buttonOn();previewDisplay('preview2');">ファイルを選択
@@ -51,10 +54,12 @@
               <img id="preview2" alt="" style="display:none">
             </div>
         </div>
+        </div>
     </div>
     <div>
         <button type="submit"  name="compose" id="submitbutton" formmethod="post" style="opacity:0.4" disabled>合成</button>
     </div >
+    <div class="bottombox">
     <div id="bottombox" class="box30">
         <div class="box-title">合成結果</div>
             <div class="resizeimg">
@@ -79,6 +84,7 @@
               {% endif %}
           </div>
     </div>
+  </div>
 </form>
 </div>
 <script src="{{ url_for('static', filename='javascript/hoge.js') }}"></script>
