@@ -64,22 +64,33 @@
         <div class="box-title">合成結果</div>
             <div class="resizeimg">
               {% if img_path %}
+              <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3" style="opacity:0.3;display:none"  alt="">
+              <img class="out" src="{{ img_path }}" id="img3" alt="">
+              <label id="dllabel">
+                <a id="dllink" href="{{ img_path }}" download="img.png">画像を保存</a>
+              </label>
               <script>
                 const bottombox = document.getElementById('bottombox');
                 const dllabel = document.getElementById('dllabel');
                 const dllink = document.getElementById('dllink');
+                const initimg3 = document.getElementById('initimg3');
+                const img3 = document.getElementById('img3');
                 window.addEventListener("load", function() {
                     bottombox.scrollIntoView(true);
                 }, false);
+                if(window.performance) {
+                    if (window.performance.navigation.type==1) {
+                        dllink.style.opacity = 0.4;
+                        dllink.style.cursor = "default";
+                        initimg3.style.display= "inline";
+                        img3.style.display= "none";
+                    }
+                }
               </script>
-              <img class="out" src="{{ img_path }}" alt="">
-              <label>
-                <a href="{{ img_path }}" download=""img.png>画像を保存</a>
-              </label>
               {% else %}
-              <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" id="initimg3" style="opacity: 0.3"  alt="">
+              <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" style="opacity: 0.3" alt="">
               <label class="download">
-                <a id="dllink" href="{{ img_path }}" download=""img.png>画像を保存</a>
+                <a  href="{{ img_path }}" download=""img.png>画像を保存</a>
               </label>
               {% endif %}
           </div>
