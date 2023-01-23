@@ -80,8 +80,10 @@
                 }, false);
                 if(window.performance) {
                     if (window.performance.navigation.type==1) {
+                        dllabel.style.pointerEvents = "none";
                         dllink.style.opacity = 0.4;
                         dllink.style.cursor = "default";
+                        dllink.href = "";
                         initimg3.style.display= "inline";
                         img3.style.display= "none";
                     }
@@ -90,7 +92,7 @@
               {% else %}
               <img class="out" src="{{ url_for('static', filename='img/initial-out-img.png') }}" style="opacity: 0.3" alt="">
               <label class="download">
-                <a  href="{{ img_path }}" download=""img.png>画像を保存</a>
+                <a href="" download=""img.png>画像を保存</a>
               </label>
               {% endif %}
           </div>
