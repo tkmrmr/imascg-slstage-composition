@@ -152,7 +152,7 @@ button {
 
 label{
   width:90%;
-  margin:1em;
+  margin-bottom:2em;
   /* position: relative; */
   display: inline-block;
   text-decoration: none;
